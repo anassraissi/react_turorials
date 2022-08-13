@@ -15,7 +15,7 @@ function App() {
       classes=[''];
       if(true){
         classes.push('color');
-      }
+      } 
       if(true){
         classes.push('text_bold');
       }
