@@ -1,23 +1,17 @@
 import logo from './logo.svg';
 import React, { Component } from 'react';
-import axios from 'axios'
+import './App.css';
+import View_user from './component/View_user'
+import {getUser} from './component/Users';  
+// jbad fonction getUser katdir wahed traitemet machi ghi katafichi
 
-async function getUser(){
-    try{
-            const data=await axios.get('https://jsonplaceholder.typicode.com/users'); 
-            // axios Client HTTP basé sur les promesses pour navigateur et node.js 
-            console.log(data);
-            return data;
-    }   
-    catch(error){
-            console.error(error);
-    }
-}
+
 
 
 class Api extends Component {
      state={
-            users:[]
+            users:[],
+            user:{}
         }
 
     componentDidMount=()=>{  //katkhdam mnba3d ma recuperi component chi haja  // life cycle hook for component
@@ -27,6 +21,11 @@ class Api extends Component {
                 })
         })
     }
+    view_user=(user)=>{
+        this.setState({
+            user:user
+        })
+    }
 
     render(){
         return(
@@ -34,9 +33,20 @@ class Api extends Component {
                     <h2>list the names of an data by api fetch from axios  </h2>
                       <ul>
                         {this.state.users.map(user=>
-                           <li>{user.name}</li> 
+                           <li key={user.id}>{user.name} {' '}
+                            <button onClick={()=>this.view_user(user)} >view user</button> 
+                           </li>
                             )}
-                    </ul>  
+                    </ul>
+                    <hr></hr>
+                    <div>
+                        {this.state.user.id >0 ?
+                        <View_user user={this.state.user}></View_user>
+                        : <h3 className='red'> please select an user</h3>
+                        }
+                      
+                        
+                    </div>  
                 </div>
         );
 
