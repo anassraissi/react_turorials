@@ -14,6 +14,7 @@ function Classname_pack() {
     //   classes.push('background_color');
     // }
     // or by classname package
+    
    let classes=classNames({'color': 2<3,text_bold: 1==1,background_color: 4<6 });  //put the class when the condition is true
 
      // classes.join(' ') zid espace mabib les classs  katwali color text_bold background_color
