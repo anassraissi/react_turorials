@@ -1,13 +1,16 @@
 import axios from 'axios'
 
 export async function getUser(){
-    try{
             const data=await axios.get('https://jsonplaceholder.typicode.com/users'); 
             // axios Client HTTP basé sur les promesses pour navigateur et node.js 
-            console.log(data);
             return data;
-    }   
-    catch(error){
-            console.error(error);
-    }
+    
+}
+
+export async function DeletetUser(id){
+    
+            const data=await axios.DELETE('https://jsonplaceholder.typicode.com/users/'+id); 
+            // axios Client HTTP basé sur les promesses pour navigateur et node.js 
+            return data;
+     
 }
