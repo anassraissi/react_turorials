@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import './App.css';
 import View_user from './component/View_user'
 import {getUser,DeletetUser} from './component/Users';  
+import User_form from './component/User_form'
+
 // jbad fonction getUser katdir wahed traitemet machi ghi katafichi
 
 class Api extends Component {
@@ -58,6 +60,13 @@ class Api extends Component {
                         <View_user user={this.state.user}></View_user>
                         : <h3 className='red'> please select an user</h3>
                         }
+                        {this.state.user.id >0 ?
+                        <User_form value={this.state.user} 
+                        onSubmit={value=>console.log(value)}></User_form>
+                         : <h3 className='red'>nothing to edit</h3>
+                        }
+
+
      
                     </div>  
                 </div>
