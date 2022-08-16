@@ -5,13 +5,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Classname_pack from './Classname_pack';
 import Api from './Api';
+import Test from './Test';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
   {/* <Classname_pack></Classname_pack> */}
   
-  <Api></Api>
+  {/* <Api></Api> */}
+  <Test></Test>
   </React.StrictMode>
 );
 
