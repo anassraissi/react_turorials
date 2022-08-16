@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import React, { Component } from 'react';
 import './App.css';
 import View_user from './component/View_user'
-import {getUser,DeletetUser,updateUser} from './component/Users';  
+import {getUser,DeletetUser,updateUser,AddUser} from './component/Users';  
 import User_form from './component/User_form'
 
 // jbad fonction getUser katdir wahed traitemet machi ghi katafichi
@@ -49,7 +49,15 @@ class Api extends Component {
             alert("you're update was done");
         }
         )  
-    }   
+    }
+    AddUser=(value)=>{
+        AddUser(value).then(()=>{
+            alert('you adding was done');
+        })
+        .catch(Response=>{
+            alert('مايمنكش تزيد شي حاجة ');
+        })       
+    }
     render(){
         return(
                 <div className='App' >
@@ -73,7 +81,15 @@ class Api extends Component {
                         onSubmit={this.updateUser}></User_form>
                          : <h3 className='red'>nothing to edit</h3>
                         }
-
+                        
+                        <h3>Add User</h3>
+                        <User_form
+                           value={{
+                            name:'',
+                            email:''
+                           }} 
+                           onSubmit={this.AddUser}
+                        />
 
      
                     </div>  

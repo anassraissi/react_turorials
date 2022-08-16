@@ -21,3 +21,10 @@ export async function updateUser(id,value){ //update with value
     return data;
 
 }
+export async function AddUser(value){ //update with value
+    
+    const data=await axios.post('https://jsonplaceholder.typicode.com/users/',value); 
+    // axios Client HTTP basé sur les promesses pour navigateur et node.js 
+    return data;
+
+}
