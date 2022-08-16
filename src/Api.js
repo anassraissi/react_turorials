@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import React, { Component } from 'react';
 import './App.css';
 import View_user from './component/View_user'
-import {getUser,DeletetUser} from './component/Users';  
+import {getUser,DeletetUser,updateUser} from './component/Users';  
 import User_form from './component/User_form'
 
 // jbad fonction getUser katdir wahed traitemet machi ghi katafichi
@@ -42,6 +42,14 @@ class Api extends Component {
     })
 
     }
+
+    updateUser=(value)=>{
+            const id=this.state.user.id;
+        updateUser(id,value).then(Response=>{
+            alert("you're update was done");
+        }
+        )  
+    }   
     render(){
         return(
                 <div className='App' >
@@ -62,7 +70,7 @@ class Api extends Component {
                         }
                         {this.state.user.id >0 ?
                         <User_form value={this.state.user} 
-                        onSubmit={value=>console.log(value)}></User_form>
+                        onSubmit={this.updateUser}></User_form>
                          : <h3 className='red'>nothing to edit</h3>
                         }
 
